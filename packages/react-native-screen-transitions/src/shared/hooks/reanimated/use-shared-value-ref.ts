@@ -5,12 +5,13 @@ import {
 	type SharedValue,
 	useAnimatedReaction,
 } from "react-native-reanimated";
-import { IS_WEB } from "../../constants";
+import { IS_WEB, IS_WINDOWS } from "../../constants";
 
 export function readInitialValue<T>(sharedValue: SharedValue<T>): T {
-	if (IS_WEB) {
+	if (IS_WEB || IS_WINDOWS) {
 		return sharedValue.value;
 	}
+
 	const readOnUI = executeOnUIRuntimeSync((sv: SharedValue<T>) => {
 		"worklet";
 		return sv.value;

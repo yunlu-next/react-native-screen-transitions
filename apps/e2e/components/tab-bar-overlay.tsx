@@ -7,7 +7,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
 	type OverlayProps,
 	useScreenAnimation,
-} from "react-native-screen-transitions";
+} from "@yunlu-next/react-native-screen-transitions";
 import { useTheme } from "@/theme";
 
 /**

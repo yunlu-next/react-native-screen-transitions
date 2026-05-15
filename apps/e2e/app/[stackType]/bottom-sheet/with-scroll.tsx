@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 const MAX_SNAP = 0.8;

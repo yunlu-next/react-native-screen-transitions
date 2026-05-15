@@ -10,7 +10,7 @@ import {
 	type BlankStackNavigationEventMap,
 	type BlankStackNavigationOptions,
 	createBlankStackNavigator,
-} from "react-native-screen-transitions/blank-stack";
+} from "@yunlu-next/react-native-screen-transitions/blank-stack";
 
 const { Navigator } = createBlankStackNavigator();
 

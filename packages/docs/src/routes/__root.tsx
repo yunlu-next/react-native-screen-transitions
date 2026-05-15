@@ -15,7 +15,7 @@ export const Route = createRootRoute({
 			{
 				name: "description",
 				content:
-					"TanStack Start docs prototype for react-native-screen-transitions.",
+					"TanStack Start docs prototype for @yunlu-next/react-native-screen-transitions.",
 			},
 		],
 	}),

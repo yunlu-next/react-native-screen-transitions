@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import Transition from "react-native-screen-transitions";
-import type { ComponentStackScreenProps } from "react-native-screen-transitions/component-stack";
+import Transition from "@yunlu-next/react-native-screen-transitions";
+import type { ComponentStackScreenProps } from "@yunlu-next/react-native-screen-transitions/component-stack";
 import { useTheme } from "@/theme";
 import { BoundsIndicator } from "./bounds-indicator";
 import { NestedStackScreen } from "./nested-stack";

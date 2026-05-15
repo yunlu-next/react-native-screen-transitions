@@ -12,7 +12,7 @@ imageAlt: "A still from the example app used as a motion reference."
 imageCaption: "A frame from the example app, used as lightweight motion context."
 ---
 
-`react-native-screen-transitions` is a React Navigation transition toolkit for apps that need more control than the platform defaults.
+`@yunlu-next/react-native-screen-transitions` is a React Navigation transition toolkit for apps that need more control than the platform defaults.
 
 Use it when you want to build:
 
@@ -52,9 +52,9 @@ The library has three main pieces:
 3. screen options where you define gestures, snap points, overlays, masking, and `screenStyleInterpolator`
 
 ```tsx
-import Transition from "react-native-screen-transitions";
-import { createBlankStackNavigator } from "react-native-screen-transitions/blank-stack";
-import { createNativeStackNavigator } from "react-native-screen-transitions/native-stack";
+import Transition from "@yunlu-next/react-native-screen-transitions";
+import { createBlankStackNavigator } from "@yunlu-next/react-native-screen-transitions/blank-stack";
+import { createNativeStackNavigator } from "@yunlu-next/react-native-screen-transitions/native-stack";
 ```
 
 ## Choose A Stack
@@ -94,8 +94,8 @@ Use native stack when you already rely on native-stack behavior and you want a o
 At runtime, the navigator handles routing and each screen's `options` describe how that screen behaves:
 
 ```tsx
-import Transition from "react-native-screen-transitions";
-import { createBlankStackNavigator } from "react-native-screen-transitions/blank-stack";
+import Transition from "@yunlu-next/react-native-screen-transitions";
+import { createBlankStackNavigator } from "@yunlu-next/react-native-screen-transitions/blank-stack";
 
 const Stack = createBlankStackNavigator();
 

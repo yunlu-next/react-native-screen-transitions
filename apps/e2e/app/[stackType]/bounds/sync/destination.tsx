@@ -6,7 +6,7 @@ import {
 	useWindowDimensions,
 	View,
 } from "react-native";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { ScreenHeader } from "@/components/screen-header";
 import { useTheme } from "@/theme";
 import {

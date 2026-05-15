@@ -5,7 +5,7 @@ import Animated, {
 	useAnimatedStyle,
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useScreenAnimation } from "react-native-screen-transitions";
+import { useScreenAnimation } from "@yunlu-next/react-native-screen-transitions";
 import { buildStackPath, useResolvedStackType } from "@/components/stack-examples/stack-routing";
 import { screenTints } from "@/theme";
 

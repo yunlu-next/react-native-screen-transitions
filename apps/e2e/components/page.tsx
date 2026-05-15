@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import type { AnimatedStyle } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { Footer } from "./footer";
 
 interface PageProps {

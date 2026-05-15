@@ -1,4 +1,4 @@
-# react-native-screen-transitions
+# @yunlu-next/react-native-screen-transitions
 
 Customizable screen transitions for React Native. Build gesture-driven, shared element, and fully custom animations with a simple API.
 
@@ -69,7 +69,14 @@ Use the notes below as the source of truth when migrating examples or generating
 ## Installation
 
 ```bash
-npm install react-native-screen-transitions
+npm install @yunlu-next/react-native-screen-transitions
+```
+
+For private GitHub Packages installs, configure the scope before installing:
+
+```bash
+npm config set @yunlu-next:registry https://npm.pkg.github.com
+npm login --scope=@yunlu-next --registry=https://npm.pkg.github.com
 ```
 
 ### Peer Dependencies
@@ -88,8 +95,8 @@ npm install react-native-reanimated react-native-gesture-handler \
 ### 1. Create a Stack
 
 ```tsx
-import { createBlankStackNavigator } from "react-native-screen-transitions/blank-stack";
-import Transition from "react-native-screen-transitions";
+import { createBlankStackNavigator } from "@yunlu-next/react-native-screen-transitions/blank-stack";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 const Stack = createBlankStackNavigator();
 
@@ -116,7 +123,7 @@ import { withLayoutContext } from "expo-router";
 import {
   createBlankStackNavigator,
   type BlankStackNavigationOptions,
-} from "react-native-screen-transitions/blank-stack";
+} from "@yunlu-next/react-native-screen-transitions/blank-stack";
 
 const { Navigator } = createBlankStackNavigator();
 
@@ -148,7 +155,7 @@ function App() {
 For the static API, keep them in the same config object:
 
 ```tsx
-import { createBlankStackNavigator } from "react-native-screen-transitions/blank-stack";
+import { createBlankStackNavigator } from "@yunlu-next/react-native-screen-transitions/blank-stack";
 
 const Stack = createBlankStackNavigator({
   initialRouteName: "Home",
@@ -507,7 +514,7 @@ Use `backdropComponent` when you want full control over backdrop visuals and int
 import { router } from "expo-router";
 import { Pressable } from "react-native";
 import Animated, { interpolate, useAnimatedStyle } from "react-native-reanimated";
-import { useScreenAnimation } from "react-native-screen-transitions";
+import { useScreenAnimation } from "@yunlu-next/react-native-screen-transitions";
 
 function SheetBackdrop() {
   const animation = useScreenAnimation();
@@ -539,7 +546,7 @@ function SheetBackdrop() {
 Control snap points from anywhere in your app:
 
 ```tsx
-import { snapTo } from "react-native-screen-transitions";
+import { snapTo } from "@yunlu-next/react-native-screen-transitions";
 
 function BottomSheet() {
   // Expand to full height (index 1)
@@ -737,7 +744,7 @@ Helper exports:
 Access animation state inside a screen:
 
 ```tsx
-import { useScreenAnimation } from "react-native-screen-transitions";
+import { useScreenAnimation } from "@yunlu-next/react-native-screen-transitions";
 
 function DetailScreen() {
   const animation = useScreenAnimation();
@@ -756,7 +763,7 @@ function DetailScreen() {
 Get navigation state without animation values:
 
 ```tsx
-import { useScreenState } from "react-native-screen-transitions";
+import { useScreenState } from "@yunlu-next/react-native-screen-transitions";
 
 function DetailScreen() {
   const { index, focusedRoute, routes, navigation } = useScreenState();
@@ -769,7 +776,7 @@ function DetailScreen() {
 Access navigation history across the app:
 
 ```tsx
-import { useHistory } from "react-native-screen-transitions";
+import { useHistory } from "@yunlu-next/react-native-screen-transitions";
 
 function MyComponent() {
   const { getRecent, getPath } = useHistory();
@@ -784,7 +791,7 @@ function MyComponent() {
 Coordinate your own pan gestures with the navigation gesture:
 
 ```tsx
-import { useScreenGesture } from "react-native-screen-transitions";
+import { useScreenGesture } from "@yunlu-next/react-native-screen-transitions";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 
 function MyScreen() {
@@ -901,7 +908,7 @@ Blank stack and native stack are the primary APIs. Component stack remains avail
 The default choice. Uses `react-native-screens` for native screen containers, with animations powered by Reanimated worklets running on the UI thread (not the JS thread).
 
 ```tsx
-import { createBlankStackNavigator } from "react-native-screen-transitions/blank-stack";
+import { createBlankStackNavigator } from "@yunlu-next/react-native-screen-transitions/blank-stack";
 ```
 
 ### Native Stack
@@ -909,7 +916,7 @@ import { createBlankStackNavigator } from "react-native-screen-transitions/blank
 Extends `@react-navigation/native-stack`. Requires `enableTransitions: true`.
 
 ```tsx
-import { createNativeStackNavigator } from "react-native-screen-transitions/native-stack";
+import { createNativeStackNavigator } from "@yunlu-next/react-native-screen-transitions/native-stack";
 
 <Stack.Screen
   name="Detail"
@@ -927,7 +934,7 @@ import { createNativeStackNavigator } from "react-native-screen-transitions/nati
 Standalone navigator, not connected to React Navigation. Kept for compatibility with older integrations.
 
 ```tsx
-import { createComponentStackNavigator } from "react-native-screen-transitions/component-stack";
+import { createComponentStackNavigator } from "@yunlu-next/react-native-screen-transitions/component-stack";
 
 const Stack = createComponentStackNavigator();
 
@@ -1014,7 +1021,7 @@ cd ios && pod install
 // app/index.tsx
 import { router } from "expo-router";
 import { View } from "react-native";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 export default function HomeScreen() {
   return (
@@ -1044,7 +1051,7 @@ export default function HomeScreen() {
 ```tsx
 // app/details.tsx
 import { useLocalSearchParams } from "expo-router";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 export default function DetailsScreen() {
   const { sharedBoundTag } = useLocalSearchParams<{ sharedBoundTag: string }>();
@@ -1071,7 +1078,7 @@ export default function DetailsScreen() {
 
 ```tsx
 // app/_layout.tsx
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { Stack } from "./stack";
 
 export default function RootLayout() {

@@ -1,4 +1,4 @@
-const LIBRARY_NAME = "react-native-screen-transitions";
+const LIBRARY_NAME = "@yunlu-next/react-native-screen-transitions";
 
 export const logger = {
 	error(message: string) {

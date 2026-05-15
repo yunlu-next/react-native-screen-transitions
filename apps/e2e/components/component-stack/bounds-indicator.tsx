@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 interface BoundsIndicatorProps {
 	children: ReactNode;

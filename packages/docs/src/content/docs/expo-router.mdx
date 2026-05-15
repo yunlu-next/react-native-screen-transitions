@@ -13,7 +13,7 @@ to: /expo-router
 
 Expo Router integration is just React Navigation integration through `withLayoutContext()`.
 
-There is no special Expo Router navigator for this package. Create the navigator with `react-native-screen-transitions`, wrap its `Navigator`, then use that wrapper inside your route `_layout.tsx`.
+There is no special Expo Router navigator for this package. Create the navigator with `@yunlu-next/react-native-screen-transitions`, wrap its `Navigator`, then use that wrapper inside your route `_layout.tsx`.
 
 Most work should use blank stack. Reach for native stack only when you specifically want `@react-navigation/native-stack`.
 
@@ -35,7 +35,7 @@ import {
   createBlankStackNavigator,
   type BlankStackNavigationEventMap,
   type BlankStackNavigationOptions,
-} from "react-native-screen-transitions/blank-stack";
+} from "@yunlu-next/react-native-screen-transitions/blank-stack";
 
 const { Navigator } = createBlankStackNavigator();
 
@@ -62,7 +62,7 @@ The blank-stack navigator wrapper itself also accepts navigator props like `inde
 
 ```tsx
 // app/gestures/_layout.tsx
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { BlankStack } from "@/layouts/blank-stack";
 
 export default function GesturesLayout() {
@@ -96,7 +96,7 @@ import {
   createNativeStackNavigator,
   type NativeStackNavigationEventMap,
   type NativeStackNavigationOptions,
-} from "react-native-screen-transitions/native-stack";
+} from "@yunlu-next/react-native-screen-transitions/native-stack";
 
 const { Navigator } = createNativeStackNavigator();
 
@@ -131,7 +131,7 @@ Blank stack runs the transition system by default. Native stack only participate
 
 ```tsx
 import { router } from "expo-router";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 <Transition.Boundary.Trigger
   id="hero"

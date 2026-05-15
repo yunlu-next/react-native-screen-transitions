@@ -1,4 +1,4 @@
-import type { TransitionSpec } from "react-native-screen-transitions";
+import type { TransitionSpec } from "@yunlu-next/react-native-screen-transitions";
 
 /**
  * Spring configuration for smooth animations

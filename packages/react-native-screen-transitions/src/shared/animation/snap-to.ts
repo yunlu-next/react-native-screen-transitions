@@ -73,7 +73,7 @@ export function snapDescriptorToIndex(
  *
  * @example
  * ```tsx
- * import { snapTo } from 'react-native-screen-transitions';
+ * import { snapTo } from '@yunlu-next/react-native-screen-transitions';
  *
  * // Snap to the first (smallest) snap point
  * snapTo(0);

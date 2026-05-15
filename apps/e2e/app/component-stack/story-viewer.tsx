@@ -18,10 +18,10 @@ import Animated, {
 	withTiming,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { ScreenInterpolationProps } from "react-native-screen-transitions";
-import Transition from "react-native-screen-transitions";
-import type { ComponentStackScreenProps } from "react-native-screen-transitions/component-stack";
-import { createComponentStackNavigator } from "react-native-screen-transitions/component-stack";
+import type { ScreenInterpolationProps } from "@yunlu-next/react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
+import type { ComponentStackScreenProps } from "@yunlu-next/react-native-screen-transitions/component-stack";
+import { createComponentStackNavigator } from "@yunlu-next/react-native-screen-transitions/component-stack";
 import { ScreenHeader } from "@/components/screen-header";
 import { useTheme } from "@/theme";
 

@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       channel:
-        description: "Release channel. stable opens/updates the Release Please PR; alpha/beta/rc publish an npm prerelease."
+        description: "Release channel. stable opens/updates the Release Please PR; alpha/beta/rc publish a GitHub Packages prerelease."
         required: true
         default: stable
         type: choice
@@ -45,6 +45,7 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
+      packages: write
       id-token: write
 
     steps:
@@ -66,12 +67,13 @@ jobs:
         with:
           bun-version: 1.2.20
 
-      - name: Setup Node (for npm provenance)
+      - name: Setup Node (for GitHub Packages)
         if: ${{ steps.release.outputs['packages/react-native-screen-transitions--release_created'] == 'true' }}
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@yunlu-next"
 
       - name: Install deps
         if: ${{ steps.release.outputs['packages/react-native-screen-transitions--release_created'] == 'true' }}
@@ -81,10 +83,12 @@ jobs:
         if: ${{ steps.release.outputs['packages/react-native-screen-transitions--release_created'] == 'true' }}
         run: bun run build
 
-      - name: Publish to npm
+      - name: Publish to GitHub Packages
         if: ${{ steps.release.outputs['packages/react-native-screen-transitions--release_created'] == 'true' }}
         working-directory: packages/react-native-screen-transitions
-        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish
 
   prerelease:
     name: Prerelease
@@ -92,6 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
       id-token: write
 
     steps:
@@ -109,11 +114,12 @@ jobs:
         with:
           bun-version: 1.2.20
 
-      - name: Setup Node (for npm trusted publishing)
+      - name: Setup Node (for GitHub Packages)
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@yunlu-next"
 
       - name: Install deps
         working-directory: source
@@ -125,6 +131,7 @@ jobs:
           PACKAGE_DIR: source/packages/react-native-screen-transitions
           PRERELEASE_CHANNEL: ${{ inputs.channel }}
           PRERELEASE_BUMP: ${{ inputs.bump }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node .github/scripts/resolve-prerelease-version.mjs
 
       - name: Set package version
@@ -154,11 +161,13 @@ jobs:
         working-directory: source/packages/react-native-screen-transitions
         run: npm pack --dry-run
 
-      - name: Publish prerelease to npm
+      - name: Publish prerelease to GitHub Packages
         if: ${{ inputs.dry_run == false }}
         working-directory: source/packages/react-native-screen-transitions
-        run: npm publish --access public --tag "${{ inputs.channel }}"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish --tag "${{ inputs.channel }}"
 
       - name: Dry run summary
         if: ${{ inputs.dry_run != false }}
-        run: echo "Prepared react-native-screen-transitions@${{ steps.version.outputs.version }} for npm tag ${{ inputs.channel }}. Re-run with dry_run=false to publish."
+        run: echo "Prepared @yunlu-next/react-native-screen-transitions@${{ steps.version.outputs.version }} for GitHub Packages tag ${{ inputs.channel }}. Re-run with dry_run=false to publish."

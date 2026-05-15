@@ -13,7 +13,7 @@ import Animated, {
 	withSpring,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { ScreenHeader } from "@/components/screen-header";
 import { useTheme } from "@/theme";
 

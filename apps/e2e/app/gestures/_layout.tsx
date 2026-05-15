@@ -1,5 +1,5 @@
 import { interpolate } from "react-native-reanimated";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { BlankStack } from "@/layouts/blank-stack";
 
 export default function GesturesLayout() {

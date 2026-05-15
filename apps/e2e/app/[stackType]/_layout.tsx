@@ -2,7 +2,7 @@
 import { BlurView } from "expo-blur";
 import SquircleView from "react-native-fast-squircle";
 import { interpolate } from "react-native-reanimated";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { useResolvedStackType } from "@/components/stack-examples/stack-routing";
 import { BlankStack } from "@/layouts/blank-stack";
 import { Stack } from "@/layouts/stack";

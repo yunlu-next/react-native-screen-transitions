@@ -3,7 +3,7 @@ import { useLocalSearchParams } from "expo-router";
 import type { ListRenderItemInfo } from "react-native";
 import { StyleSheet, useWindowDimensions, View } from "react-native";
 import Animated, { useAnimatedScrollHandler } from "react-native-reanimated";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import {
 	activeGalleryId,
 	GALLERY_GROUP,

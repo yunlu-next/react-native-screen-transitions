@@ -5,7 +5,7 @@ import Animated, {
 	interpolateColor,
 	useAnimatedStyle,
 } from "react-native-reanimated";
-import { snapTo, useScreenAnimation } from "react-native-screen-transitions";
+import { snapTo, useScreenAnimation } from "@yunlu-next/react-native-screen-transitions";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 const MAX_SNAP = 1.0;

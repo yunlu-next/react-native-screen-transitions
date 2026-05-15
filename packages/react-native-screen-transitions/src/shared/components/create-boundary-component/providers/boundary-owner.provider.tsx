@@ -29,10 +29,10 @@ const BoundaryOwnerContext = createContext<BoundaryOwnerContextValue | null>(
 );
 
 const MULTIPLE_TARGETS_WARNING =
-	"[react-native-screen-transitions] Multiple Boundary.Target elements were rendered under the same boundary owner. The first registered target will be measured.";
+	"[@yunlu-next/react-native-screen-transitions] Multiple Boundary.Target elements were rendered under the same boundary owner. The first registered target will be measured.";
 
 export const TARGET_OUTSIDE_OWNER_WARNING =
-	"[react-native-screen-transitions] Boundary.Target must be rendered inside a Boundary owner (Boundary.View, Boundary.Trigger, or a component created by createBoundaryComponent).";
+	"[@yunlu-next/react-native-screen-transitions] Boundary.Target must be rendered inside a Boundary owner (Boundary.View, Boundary.Trigger, or a component created by createBoundaryComponent).";
 
 export const BoundaryOwnerProvider = (props: {
 	value: BoundaryOwnerContextValue;

@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { runOnJS, useAnimatedScrollHandler } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { useTheme } from "@/theme";
 import { REEL_ITEMS, REELS_GROUP, selectedId } from "./constants";
 

@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, View } from "react-native";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { getXPostImageUrl } from "./constants";
 
 const FALLBACK_BOUND_TAG = "shared-x-image-fallback";

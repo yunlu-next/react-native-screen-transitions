@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import { interpolate } from "react-native-reanimated";
-import type { ScreenInterpolationProps } from "react-native-screen-transitions";
-import Transition from "react-native-screen-transitions";
+import type { ScreenInterpolationProps } from "@yunlu-next/react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import {
 	type ComponentStackScreenProps,
 	createComponentStackNavigator,
-} from "react-native-screen-transitions/component-stack";
+} from "@yunlu-next/react-native-screen-transitions/component-stack";
 import { useTheme } from "@/theme";
 import { BoundsIndicator } from "./bounds-indicator";
 import { transitionSpec } from "./interpolator";

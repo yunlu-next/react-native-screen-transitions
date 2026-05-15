@@ -3,11 +3,11 @@ import { createContext, useContext, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { interpolate } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { ScreenInterpolationProps } from "react-native-screen-transitions";
+import type { ScreenInterpolationProps } from "@yunlu-next/react-native-screen-transitions";
 import {
 	type BlankStackScreenProps,
 	createBlankStackNavigator,
-} from "react-native-screen-transitions/blank-stack";
+} from "@yunlu-next/react-native-screen-transitions/blank-stack";
 import { ScreenHeader } from "@/components/screen-header";
 import { useResolvedStackType } from "@/components/stack-examples/stack-routing";
 import { useTheme } from "@/theme";

@@ -11,6 +11,13 @@ to: /installation
 
 ## 1. Install The Package
 
+For private GitHub Packages installs, configure the scope before installing:
+
+```bash
+npm config set @yunlu-next:registry https://npm.pkg.github.com
+npm login --scope=@yunlu-next --registry=https://npm.pkg.github.com
+```
+
 <CodeBlock
   variant="terminal"
   defaultTab="npm"
@@ -19,22 +26,22 @@ to: /installation
     {
       label: "npm",
       value: "npm",
-      code: `npm install react-native-screen-transitions`,
+      code: `npm install @yunlu-next/react-native-screen-transitions`,
     },
     {
       label: "yarn",
       value: "yarn",
-      code: `yarn add react-native-screen-transitions`,
+      code: `yarn add @yunlu-next/react-native-screen-transitions`,
     },
     {
       label: "pnpm",
       value: "pnpm",
-      code: `pnpm add react-native-screen-transitions`,
+      code: `pnpm add @yunlu-next/react-native-screen-transitions`,
     },
     {
       label: "bun",
       value: "bun",
-      code: `bun add react-native-screen-transitions`,
+      code: `bun add @yunlu-next/react-native-screen-transitions`,
     },
   ]}
 />
@@ -151,8 +158,8 @@ cd ios && pod install
 If this renders and navigates without Reanimated or Gesture Handler errors, the base setup is correct:
 
 ```tsx
-import Transition from "react-native-screen-transitions";
-import { createBlankStackNavigator } from "react-native-screen-transitions/blank-stack";
+import Transition from "@yunlu-next/react-native-screen-transitions";
+import { createBlankStackNavigator } from "@yunlu-next/react-native-screen-transitions/blank-stack";
 
 const Stack = createBlankStackNavigator();
 

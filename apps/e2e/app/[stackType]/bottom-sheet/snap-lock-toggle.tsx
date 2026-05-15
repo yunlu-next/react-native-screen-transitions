@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { Dimensions, Pressable, StyleSheet, Text, View } from "react-native";
-import { snapTo } from "react-native-screen-transitions";
+import { snapTo } from "@yunlu-next/react-native-screen-transitions";
 import { useTheme } from "@/theme";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");

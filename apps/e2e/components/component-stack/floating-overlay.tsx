@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { interpolate } from "react-native-reanimated";
-import type { ScreenInterpolationProps } from "react-native-screen-transitions";
-import { createComponentStackNavigator } from "react-native-screen-transitions/component-stack";
+import type { ScreenInterpolationProps } from "@yunlu-next/react-native-screen-transitions";
+import { createComponentStackNavigator } from "@yunlu-next/react-native-screen-transitions/component-stack";
 import { transitionSpec } from "./interpolator";
 import {
 	ScreenCompact,

@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MAX_SNAP = 0.8;

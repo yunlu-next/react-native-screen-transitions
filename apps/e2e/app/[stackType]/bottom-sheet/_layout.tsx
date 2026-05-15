@@ -3,7 +3,7 @@ import { interpolate } from "react-native-reanimated";
 import Transition, {
 	NAVIGATION_MASK_CONTAINER_STYLE_ID,
 	NAVIGATION_MASK_ELEMENT_STYLE_ID,
-} from "react-native-screen-transitions";
+} from "@yunlu-next/react-native-screen-transitions";
 import { useResolvedStackType } from "@/components/stack-examples/stack-routing";
 import { BlankStack } from "@/layouts/blank-stack";
 import { Stack } from "@/layouts/stack";

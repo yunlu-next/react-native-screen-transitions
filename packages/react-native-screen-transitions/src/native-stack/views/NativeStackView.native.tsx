@@ -67,7 +67,7 @@ type SceneViewProps = {
 	onSheetDetentChanged: ScreenProps["onSheetDetentChanged"];
 };
 
-const useNativeDriver = Platform.OS !== "web";
+const useNativeDriver = Platform.OS !== "web" && Platform.OS !== "windows";
 
 const SceneView = ({
 	index,

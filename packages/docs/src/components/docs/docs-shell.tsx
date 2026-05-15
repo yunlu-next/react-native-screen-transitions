@@ -471,7 +471,7 @@ export function DocsShell({ children }: { children: ReactNode }) {
 						<HeaderSearch onClick={() => setSearchOpen(true)} />
 						<div className="hidden items-center lg:flex">
 							<HeaderMetric
-								href="https://github.com/eds2002/react-native-screen-transitions"
+								href="https://github.com/yunlu-next/react-native-screen-transitions"
 								label="Open GitHub repository"
 								value={githubStarsLabel}
 							>

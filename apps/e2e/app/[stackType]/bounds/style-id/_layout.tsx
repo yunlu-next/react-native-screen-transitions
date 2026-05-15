@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { interpolate } from "react-native-reanimated";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import { create } from "zustand";
 import { useResolvedStackType } from "@/components/stack-examples/stack-routing";
 import { BlankStack } from "@/layouts/blank-stack";

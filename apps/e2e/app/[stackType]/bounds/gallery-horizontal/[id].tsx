@@ -7,7 +7,7 @@ import type {
 } from "react-native";
 import { StyleSheet, useWindowDimensions, View } from "react-native";
 import Animated from "react-native-reanimated";
-import Transition from "react-native-screen-transitions";
+import Transition from "@yunlu-next/react-native-screen-transitions";
 import {
 	activeHorizontalGalleryId,
 	GALLERY_ITEMS,

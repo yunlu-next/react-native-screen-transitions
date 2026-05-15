@@ -5,7 +5,7 @@ import Animated, {
 	interpolateColor,
 	useAnimatedStyle,
 } from "react-native-reanimated";
-import { snapTo, useScreenAnimation } from "react-native-screen-transitions";
+import { snapTo, useScreenAnimation } from "@yunlu-next/react-native-screen-transitions";
 import { useTheme } from "@/theme";
 
 export default function AutoSnapScreen() {

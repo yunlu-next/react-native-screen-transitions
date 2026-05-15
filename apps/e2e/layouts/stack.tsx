@@ -8,7 +8,7 @@ import {
 	createNativeStackNavigator,
 	type NativeStackNavigationEventMap,
 	type NativeStackNavigationOptions,
-} from "react-native-screen-transitions/native-stack";
+} from "@yunlu-next/react-native-screen-transitions/native-stack";
 
 const { Navigator } = createNativeStackNavigator();
 

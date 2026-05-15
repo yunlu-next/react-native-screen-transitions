@@ -37,3 +37,6 @@ lerna-debug.log*
 
 # Misc
 CONVENTIONS.md
+
+.idea
+.tmp-npm-cache
