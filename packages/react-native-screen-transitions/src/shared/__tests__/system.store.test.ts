@@ -23,10 +23,12 @@ describe("SystemStore", () => {
 			"route-a",
 			"measuredContentLayout",
 		);
+		const screenLayout = SystemStore.getValue("route-a", "screenLayout");
 
 		expect(targetProgress.value).toBe(1);
 		expect(resolvedAutoSnapPoint.value).toBe(-1);
 		expect(measuredContentLayout.value).toBeNull();
+		expect(screenLayout.value).toBeNull();
 	});
 
 	it("recreates a fresh bag after clearBag", () => {

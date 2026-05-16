@@ -153,10 +153,11 @@ export const useHandlers = ({
 		current.options,
 	);
 
-	const dimensions = useWindowDimensions();
+	const fallbackDimensions = useWindowDimensions();
 	const routeKey = current.route.key;
 	const animations = AnimationStore.getBag(routeKey);
 	const gestureAnimationValues = GestureStore.getBag(routeKey);
+	const screenLayout = SystemStore.getValue(routeKey, "screenLayout");
 	const targetProgressValue = SystemStore.getValue(routeKey, "targetProgress");
 	const {
 		hasSnapPoints,
@@ -205,6 +206,7 @@ export const useHandlers = ({
 			}
 
 			const touch = e.changedTouches[0];
+			const dimensions = screenLayout.value ?? fallbackDimensions;
 
 			const { isSwipingDown, isSwipingUp, isSwipingRight, isSwipingLeft } =
 				applyOffsetRules({
@@ -371,6 +373,7 @@ export const useHandlers = ({
 			}
 
 			const { translationX, translationY } = event;
+			const dimensions = screenLayout.value ?? fallbackDimensions;
 			const { width, height } = dimensions;
 
 			gestureAnimationValues.x.value = translationX;
@@ -460,6 +463,7 @@ export const useHandlers = ({
 			"worklet";
 
 			animations.willAnimate.value = FALSE;
+			const dimensions = screenLayout.value ?? fallbackDimensions;
 
 			if (hasSnapPoints) {
 				const isHorizontal = snapAxis === "horizontal";

@@ -19,8 +19,12 @@ export function useContentLayout() {
 	const animations = AnimationStore.getBag(routeKey);
 	const system = SystemStore.getBag(routeKey);
 
-	const { targetProgress, resolvedAutoSnapPoint, measuredContentLayout } =
-		system;
+	const {
+		targetProgress,
+		resolvedAutoSnapPoint,
+		measuredContentLayout,
+		screenLayout,
+	} = system;
 	const { requestLifecycleTransition } = system.actions;
 
 	const experimental_animateOnInitialMount =
@@ -31,43 +35,48 @@ export function useContentLayout() {
 			const { width, height } = event.nativeEvent.layout;
 			if (width <= 0 || height <= 0) return;
 
-			const fraction = Math.min(height / screenHeight, 1);
+			runOnUI(
+				(nextWidth: number, nextHeight: number, fallbackHeight: number) => {
+					"worklet";
+					const measuredScreenHeight =
+						screenLayout.get()?.height ?? fallbackHeight;
+					const nextFraction = Math.min(nextHeight / measuredScreenHeight, 1);
 
-			runOnUI((nextWidth: number, nextHeight: number, nextFraction: number) => {
-				"worklet";
-				measuredContentLayout.value = {
-					width: nextWidth,
-					height: nextHeight,
-				};
+					measuredContentLayout.value = {
+						width: nextWidth,
+						height: nextHeight,
+					};
 
-				const isFirstMeasurement = resolvedAutoSnapPoint.value <= 0;
-				resolvedAutoSnapPoint.value = nextFraction;
+					const isFirstMeasurement = resolvedAutoSnapPoint.value <= 0;
+					resolvedAutoSnapPoint.value = nextFraction;
 
-				if (
-					!isFirstMeasurement ||
-					animations.progress.value !== 0 ||
-					animations.animating.value !== 0
-				) {
-					return;
-				}
+					if (
+						!isFirstMeasurement ||
+						animations.progress.value !== 0 ||
+						animations.animating.value !== 0
+					) {
+						return;
+					}
 
-				if (isFirstKey && !experimental_animateOnInitialMount) {
-					targetProgress.value = nextFraction;
-					animations.progress.value = nextFraction;
-					return;
-				}
+					if (isFirstKey && !experimental_animateOnInitialMount) {
+						targetProgress.value = nextFraction;
+						animations.progress.value = nextFraction;
+						return;
+					}
 
-				requestLifecycleTransition(
-					LifecycleTransitionRequestKind.Open,
-					nextFraction,
-				);
-			})(width, height, fraction);
+					requestLifecycleTransition(
+						LifecycleTransitionRequestKind.Open,
+						nextFraction,
+					);
+				},
+			)(width, height, screenHeight);
 		},
 		[
 			animations,
 			targetProgress,
 			resolvedAutoSnapPoint,
 			measuredContentLayout,
+			screenLayout,
 			isFirstKey,
 			screenHeight,
 			experimental_animateOnInitialMount,

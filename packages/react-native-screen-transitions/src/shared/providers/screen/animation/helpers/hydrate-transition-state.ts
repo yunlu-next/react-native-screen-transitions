@@ -24,6 +24,7 @@ type BuiltState = {
 	targetProgress: SharedValue<number>;
 	resolvedAutoSnapPoint: SharedValue<number>;
 	measuredContentLayout: SharedValue<Layout | null>;
+	screenLayout: SharedValue<Layout | null>;
 	hasAutoSnapPoint: boolean;
 	sortedNumericSnapPoints: number[];
 	unwrapped: ScreenTransitionState;
@@ -86,10 +87,11 @@ export const computeLogicallySettled = ({
 
 export const hydrateTransitionState = (
 	s: BuiltState,
-	dimensions: Layout,
+	fallbackDimensions: Layout,
 ): ScreenTransitionState => {
 	"worklet";
 	const out = s.unwrapped;
+	const dimensions = s.screenLayout.get() ?? fallbackDimensions;
 	out.progress = s.progress.get();
 	out.willAnimate = s.willAnimate.get();
 	out.closing = s.closing.get();

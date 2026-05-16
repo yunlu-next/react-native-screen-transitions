@@ -27,6 +27,11 @@ type SystemStoreState = {
 	measuredContentLayout: SharedValue<Layout | null>;
 
 	/**
+	 * Actual measured screen container layout after navigator screenLayout wraps it.
+	 */
+	screenLayout: SharedValue<Layout | null>;
+
+	/**
 	 * The currently pending lifecycle transition request.
 	 */
 	pendingLifecycleRequestKind: SharedValue<LifecycleTransitionRequestKind>;
@@ -68,6 +73,7 @@ export const SystemStore = createStore<SystemStoreState, SystemStoreActions>({
 		targetProgress: makeMutable(1),
 		resolvedAutoSnapPoint: makeMutable(-1),
 		measuredContentLayout: makeMutable<Layout | null>(null),
+		screenLayout: makeMutable<Layout | null>(null),
 		pendingLifecycleRequestKind: makeMutable<LifecycleTransitionRequestKind>(
 			LifecycleTransitionRequestKind.None,
 		),
@@ -78,6 +84,7 @@ export const SystemStore = createStore<SystemStoreState, SystemStoreActions>({
 		cancelAnimation(bag.targetProgress);
 		cancelAnimation(bag.resolvedAutoSnapPoint);
 		cancelAnimation(bag.measuredContentLayout);
+		cancelAnimation(bag.screenLayout);
 		cancelAnimation(bag.pendingLifecycleRequestKind);
 		cancelAnimation(bag.pendingLifecycleRequestTarget);
 		cancelAnimation(bag.pendingLifecycleStartBlockCount);
